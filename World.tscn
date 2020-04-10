@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://World/Bush.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.png" type="Texture" id=1]
 
 [node name="World" type="Node2D"]
 
-[node name="Bush" type="Sprite" parent="."]
-position = Vector2( 34.1134, 31 )
+[node name="Player" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 1 )
+hframes = 60
