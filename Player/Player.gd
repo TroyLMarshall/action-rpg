@@ -4,8 +4,8 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var speed = 100
-export var friction = 10
+export var speed = 80
+export var friction = 500
 var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +25,6 @@ func _physics_process(delta):
 	target_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	target_vector = target_vector.normalized()
 	
-	velocity = velocity.move_toward(target_vector, friction * delta)
+	velocity = velocity.move_toward(target_vector * speed, friction * delta)
 	
-	move_and_collide(velocity)
+	velocity = move_and_slide(velocity)
